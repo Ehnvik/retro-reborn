@@ -95,7 +95,7 @@ body {
     text-align: center;
   }
 
-  /* All Sellers */
+  /* Sellers */
 
   .all-sellers-container {
     display: flex;
@@ -125,6 +125,17 @@ body {
     color: black;
     font-weight: 600;
     text-decoration: none;
+  }
+
+  /* Clothes */
+
+  .buy-button {
+    background-color: black;
+    color: white;
+    font-size: small;
+    padding: 0px 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
   }
 }
 
@@ -213,5 +224,16 @@ body {
 
   .singleSellerLink:hover {
     opacity: 0.6;
+  }
+
+  .buy-button {
+    background-color: black;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  .buy-button:hover {
+    opacity: 0.65;
   }
 }

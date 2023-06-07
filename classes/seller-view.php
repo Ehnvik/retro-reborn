@@ -73,7 +73,7 @@ class SellerView
             if ($sold == false) {
                 echo "<td><form method='POST' action='./form-handlers/buy-clothes-form.php'>
                 <input type='hidden' name='clothing_id' value='$clothingId'>
-                <input type='submit' value='Köp'>
+                <input class='buy-button' type='submit' value='Köp'>
             </form></td>";
             } else {
                 echo "<td><strong>Såld</strong></td>";
