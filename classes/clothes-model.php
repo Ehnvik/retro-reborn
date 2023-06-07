@@ -28,4 +28,13 @@ class ClothesModel extends DB
         $stmt->bindParam(':clothingId', $clothingId);
         $stmt->execute();
     }
+
+    public function addClothes(string $clothing, float $price, int $sellerId)
+    {
+        $submissionDate = date('Y-m-d');
+
+        $sql = "INSERT INTO {$this->table} (Name, SubmissionDate, Price, Seller_ID) VALUES (?, ?, ?, ?)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$clothing, $submissionDate, $price, $sellerId]);
+    }
 }
