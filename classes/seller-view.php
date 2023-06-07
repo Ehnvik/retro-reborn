@@ -10,7 +10,7 @@ class SellerView
         <tr>
             <th>Förnamn</th>
             <th>Efternamn</th>
-            <th>Osålda</th>
+            <th>Till Salu</th>
             <th>Sålda</th>
             <th>Totalt Antal</th>
             <th>Totalt Sålt</th>
