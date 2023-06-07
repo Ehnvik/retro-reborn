@@ -20,9 +20,9 @@ class SellerModel extends DB
         SUM(CASE WHEN clothes.Sold = 1 THEN clothes.Price ELSE 0 END) AS TotalSoldAmount
     FROM sellers
      JOIN clothes ON sellers.ID = clothes.Seller_ID
-    GROUP BY sellers.ID, sellers.FirstName, sellers.LastName;
-    
-        ";
+    GROUP BY sellers.ID, sellers.FirstName, sellers.LastName
+    ORDER BY sellers.FirstName ASC;";
+
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
