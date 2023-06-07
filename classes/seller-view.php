@@ -20,8 +20,8 @@ class SellerView
         foreach ($sellers as $seller) {
             $firstName = $seller["FirstName"];
             $lastName = $seller["LastName"];
-            $sold = $seller["SoldCount"];
-            $unsold = $seller["UnsoldCount"];
+            $sold = $seller["SoldCount"] ?? 0;
+            $unsold = $seller["UnsoldCount"] ?? 0;
             $totalSoldAmount = $seller["TotalSoldAmount"];
             $totalClothes = $seller["TotalClothesCount"];
 
@@ -33,7 +33,12 @@ class SellerView
             echo "<td>$sold st</td>";
             echo "<td>$totalClothes st</td>";
             echo "<td>$totalSoldAmount kr</td>";
-            echo "<td><a class='singleSellerLink' href='seller.php?id=$id'>Visa</a></td>";
+            if ($totalClothes == null) {
+                echo "<td>Tomt</td>";
+            } else {
+                echo "<td><a class='singleSellerLink' href='seller.php?id=$id'>Visa</a></td>";
+            }
+
             echo "</tr>";
         }
         echo "</table>";

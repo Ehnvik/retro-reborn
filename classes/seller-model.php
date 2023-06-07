@@ -19,7 +19,7 @@ class SellerModel extends DB
         SUM(clothes.Sold = 1) AS SoldCount,
         SUM(CASE WHEN clothes.Sold = 1 THEN clothes.Price ELSE 0 END) AS TotalSoldAmount
     FROM sellers
-     JOIN clothes ON sellers.ID = clothes.Seller_ID
+    LEFT JOIN clothes ON sellers.ID = clothes.Seller_ID
     GROUP BY sellers.ID, sellers.FirstName, sellers.LastName
     ORDER BY sellers.FirstName ASC;";
 
@@ -32,7 +32,7 @@ class SellerModel extends DB
     {
         $sql = "SELECT sellers.*, clothes.*
         FROM sellers
-        INNER JOIN clothes ON sellers.ID = clothes.Seller_ID
+        LEFT JOIN clothes ON sellers.ID = clothes.Seller_ID
         WHERE sellers.ID = :id";
 
         $stmt = $this->pdo->prepare($sql);
@@ -40,5 +40,12 @@ class SellerModel extends DB
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function addSeller(string $firstName, string $lastName)
+    {
+        $sql = "INSERT INTO {$this->table} (FirstName, LastName) Values (?, ?);";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$firstName, $lastName]);
     }
 }
