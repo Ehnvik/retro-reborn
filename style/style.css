@@ -105,7 +105,8 @@ body {
   }
 
   .table-container {
-    font-size: 10px;
+    font-size: 12px;
+    width: 60%;
   }
 
   table,
@@ -115,14 +116,15 @@ body {
     text-align: center;
   }
 
-  /* th,
-  td {
-    padding: 10px;
-  } */
-
   table {
     box-shadow: 1px 0px 20px rgba(151, 149, 149, 0.8),
       0px 10px 5px rgba(151, 149, 149, 0.1);
+  }
+
+  .singleSellerLink {
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
   }
 }
 
@@ -200,5 +202,16 @@ body {
   table {
     box-shadow: 1px 0px 20px rgba(151, 149, 149, 0.8),
       0px 10px 5px rgba(151, 149, 149, 0.1);
+  }
+
+  .singleSellerLink {
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .singleSellerLink:hover {
+    opacity: 0.6;
   }
 }
