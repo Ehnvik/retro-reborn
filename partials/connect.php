@@ -2,7 +2,7 @@
 
 require_once 'config.php';
 
-function connect($host, $db, $user, $password)
+function connect(string $host, string $db, string $user, string $password): PDO
 {
     $dsn = "mysql:host=$host;dbname=$db;charset=UTF8";
 

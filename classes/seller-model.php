@@ -4,14 +4,14 @@ require_once "db.php";
 
 class SellerModel extends DB
 {
-    protected $table = "sellers";
+    protected string $table = "sellers";
 
-    public function getAllSellers()
+    public function getAllSellers(): array
     {
         return $this->getAll($this->table);
     }
 
-    public function getAllSellersWithClothesAmount()
+    public function getAllSellersWithClothesAmount(): array
     {
         $sql = "SELECT sellers.*,
         COUNT(clothes.ID) AS TotalClothesCount,
@@ -28,7 +28,7 @@ class SellerModel extends DB
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getSingleSeller(int $id)
+    public function getSingleSeller(int $id): array
     {
         $sql = "SELECT sellers.*, clothes.*
         FROM sellers
@@ -42,7 +42,7 @@ class SellerModel extends DB
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function addSeller(string $firstName, string $lastName)
+    public function addSeller(string $firstName, string $lastName): void
     {
         $sql = "INSERT INTO {$this->table} (FirstName, LastName) Values (?, ?);";
         $stmt = $this->pdo->prepare($sql);

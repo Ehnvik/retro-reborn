@@ -4,14 +4,14 @@ require_once "db.php";
 
 class ClothesModel extends DB
 {
-    protected $table = "clothes";
+    protected string $table = "clothes";
 
-    public function getAllClothes()
+    public function getAllClothes(): array
     {
         return $this->getAll($this->table);
     }
 
-    public function getAllClothesWithSeller()
+    public function getAllClothesWithSeller(): array
     {
         $sql = "SELECT sellers.*, clothes.*
         FROM clothes
@@ -21,7 +21,7 @@ class ClothesModel extends DB
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function buyClothes(int $clothingId)
+    public function buyClothes(int $clothingId): void
     {
         $sql = "UPDATE clothes SET Sold = true, SoldDate = CURRENT_DATE() WHERE ID = :clothingId";
         $stmt = $this->pdo->prepare($sql);
@@ -29,7 +29,7 @@ class ClothesModel extends DB
         $stmt->execute();
     }
 
-    public function addClothes(string $clothing, float $price, int $sellerId)
+    public function addClothes(string $clothing, float $price, int $sellerId): void
     {
         $submissionDate = date('Y-m-d');
 

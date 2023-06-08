@@ -2,7 +2,7 @@
 
 class ClothesView
 {
-    public function renderAllClothes(array $clothes)
+    public function renderAllClothes(array $clothes): void
     {
         echo "<div class='all-sellers-container'>";
         echo "<table class='table-container'>";

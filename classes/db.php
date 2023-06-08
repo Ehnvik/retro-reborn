@@ -3,14 +3,14 @@
 class DB
 {
 
-    protected $pdo;
+    protected PDO $pdo;
 
     public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
     }
 
-    public function getAll($table)
+    public function getAll($table): array
     {
         $query = "SELECT * FROM $table";
         $stmt = $this->pdo->prepare($query);

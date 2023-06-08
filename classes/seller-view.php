@@ -2,7 +2,7 @@
 
 class SellerView
 {
-    public function renderAllSellers(array $sellers)
+    public function renderAllSellers(array $sellers): void
     {
         echo "<div class='all-sellers-container'>";
         echo "<table class='table-container'>";
